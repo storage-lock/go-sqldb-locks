@@ -2,10 +2,8 @@ module github.com/storage-lock/go-sqldb-locks
 
 go 1.23
 
-replace github.com/storage-lock/go-sqldb-storage => ../go-sqldb-storage
-
 require (
-	github.com/storage-lock/go-sqldb-storage v0.0.0
+	github.com/storage-lock/go-sqldb-storage v0.0.2
 	github.com/storage-lock/go-storage v0.0.3
 	github.com/storage-lock/go-storage-lock v0.0.6
 	github.com/storage-lock/go-storage-lock-factory v0.0.2
