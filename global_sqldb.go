@@ -1,4 +1,4 @@
-package mysql_locks
+package sqldb_locks
 
 import (
 	"context"
@@ -31,7 +31,7 @@ func NewLockBySqlDbWithOptions(ctx context.Context, db *sql.DB, options *storage
 
 func GetLockFactoryBySqlDb(ctx context.Context, db *sql.DB) (*storage_lock_factory.StorageLockFactory[*sql.DB], error) {
 	return sqlDbStorageLockFactoryBeanFactory.GetOrInit(ctx, db, func(ctx context.Context) (*storage_lock_factory.StorageLockFactory[*sql.DB], error) {
-		sqlDbStorage, err := sqldb_storage.NewStorageBySqlDb(db)
+		sqlDbStorage, err := sqldb_storage.NewStorageBySqlDb(db, storage.NewFixedSqlDBConnectionManager(db))
 		if err != nil {
 			return nil, err
 		}
